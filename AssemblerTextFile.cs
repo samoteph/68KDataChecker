@@ -9,7 +9,7 @@ namespace _68KDataChecker
     public class AssemblerTextFile
     {
         public string Path { get; }
-        public Line[] Lines { get; private set; }
+        public AssemblerTextLine[] Lines { get; private set; }
 
         private AssemblerTextFile(string path)
         {
@@ -22,11 +22,11 @@ namespace _68KDataChecker
 
             var file = new AssemblerTextFile(path);
 
-            var lines = new List<Line>();
+            var lines = new List<AssemblerTextLine>();
 
             foreach(var line in File.ReadLines(path))
             {
-                lines.Add(new Line(file, ++count, line));
+                lines.Add(new AssemblerTextLine(file, ++count, line));
             }
 
             file.Lines = lines.ToArray();
