@@ -14,14 +14,14 @@
 
             project.Initialize();
 
-            Console.WriteLine("Start data construction");
+            Console.WriteLine("Start: Data construction");
             var dataCollection = project.CollectDataAndBss().ToList();
-            var instructionCollection = project.CollectInstructions();
-            Console.WriteLine("Stop data construction");
+            var instructionCollection = project.CollectInstructions().ToList();
+            Console.WriteLine("Stop: Data construction");
 
             int errorCounter = 0;
 
-            Console.WriteLine("Start Check instructions");
+            Console.WriteLine($"Start: Check {instructionCollection.Count} instructions in {project.Files.Count} files");
             
             foreach ( var data in dataCollection)
             {
@@ -43,13 +43,17 @@
                 }
             }
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            
             if(errorCounter > 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"Potential bug found: {errorCounter}");
             }
-
-            Console.WriteLine($"Potential bug found: {errorCounter}");
-            Console.ForegroundColor= ConsoleColor.White;
+            else
+            {
+                Console.WriteLine($"Your code is clean!");
+            }
+            Console.ForegroundColor = ConsoleColor.White;
             
             Console.WriteLine("End Check instructions");
         }
