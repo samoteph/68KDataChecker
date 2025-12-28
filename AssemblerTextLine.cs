@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _68KDataChecker
 {
-    public class Line
+    public class AssemblerTextLine
     {
         private string[] tokens = new string[]
         {
@@ -40,7 +40,7 @@ namespace _68KDataChecker
             "nbcd",
         };
 
-        public Line(AssemblerTextFile file, int number, string content)
+        public AssemblerTextLine(AssemblerTextFile file, int number, string content)
         {
             this.File = file;
             Number = number;

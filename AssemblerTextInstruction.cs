@@ -8,7 +8,7 @@ namespace _68KDataChecker
 {
     public class AssemblerTextInstruction
     {
-        public AssemblerTextInstruction(Line line, string name, AssemblerType assemblerType, string parameter1 = null, string parameter2 = null) 
+        public AssemblerTextInstruction(AssemblerTextLine line, string name, AssemblerType assemblerType, string parameter1 = null, string parameter2 = null) 
         {
             this.Line = line;
             this.Name = name;
@@ -27,7 +27,7 @@ namespace _68KDataChecker
             }
         }
 
-        public Line Line { get;}
+        public AssemblerTextLine Line { get;}
         public AssemblerType AssemblerType 
         { 
             get; 
