@@ -16,13 +16,13 @@
             project.Initialize();
 
             Console.WriteLine($"Collecting data...");
-            var dataCollection = project.CollectDataAndBss().ToList();
+            var dataCollection = project.CollectDataAndBss().ToArray();
             Console.WriteLine($"Collecting instructions...");
-            var instructionCollection = project.CollectInstructions().ToList();
+            var instructionCollection = project.CollectInstructions().ToArray();
 
             int errorCounter = 0;
 
-            Console.WriteLine($"Analyzing {instructionCollection.Count} instructions in {project.Files.Count} files");
+            Console.WriteLine($"Analyzing {instructionCollection.Length} instructions in {project.Files.Count} files");
             
             foreach ( var data in dataCollection)
             {
