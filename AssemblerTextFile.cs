@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 namespace _68KDataChecker
 {
     public class AssemblerTextFile
     {
         public string Path { get; }
-        public AssemblerTextLine[] Lines { get; private set; }
+        public Line[] Lines { get; private set; }
 
         private AssemblerTextFile(string path)
         {
@@ -22,11 +23,11 @@ namespace _68KDataChecker
 
             var file = new AssemblerTextFile(path);
 
-            var lines = new List<AssemblerTextLine>();
+            var lines = new List<Line>();
 
             foreach(var line in File.ReadLines(path))
             {
-                lines.Add(new AssemblerTextLine(file, ++count, line));
+                lines.Add(new Line(file, ++count, line));
             }
 
             file.Lines = lines.ToArray();
