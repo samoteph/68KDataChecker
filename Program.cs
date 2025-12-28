@@ -10,18 +10,19 @@
 
             string fullFilenameRoot = args[0];
 
+            Console.WriteLine($"loading project from '{fullFilenameRoot}'");
             var project = AssemblerTextProject.Load(fullFilenameRoot);
 
             project.Initialize();
 
-            Console.WriteLine("Start: Data construction");
+            Console.WriteLine($"Collecting data...");
             var dataCollection = project.CollectDataAndBss().ToList();
+            Console.WriteLine($"Collecting instructions...");
             var instructionCollection = project.CollectInstructions().ToList();
-            Console.WriteLine("Stop: Data construction");
 
             int errorCounter = 0;
 
-            Console.WriteLine($"Start: Check {instructionCollection.Count} instructions in {project.Files.Count} files");
+            Console.WriteLine($"Analyzing {instructionCollection.Count} instructions in {project.Files.Count} files");
             
             foreach ( var data in dataCollection)
             {
