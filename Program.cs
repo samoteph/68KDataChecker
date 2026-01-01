@@ -1,8 +1,8 @@
 ﻿namespace _68KDataChecker
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("68K data checker - Samuel Blanchard 2025");
@@ -57,6 +57,8 @@
             Console.ForegroundColor = ConsoleColor.White;
             
             Console.WriteLine("End Check instructions");
+
+            return -errorCounter;        
         }
     }
 }
